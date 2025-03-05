@@ -1,0 +1,414 @@
+/* All pages */
+/* This is what allows the scroll animation on anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    padding-top: 30px;
+}
+
+/* Nav needs to be transparent, because the header already has bg-white */
+nav {
+    background-color: transparent;
+}
+
+/* The nav bar used to cover the top of these sections, so a "buffer" is needed */
+#birds, #families, #hero {
+  scroll-margin-top: 80px;
+}
+
+/* Now elements can be centred without adding in-line styles */
+.text-center {
+  text-align: center;
+}
+/* End of all pages */
+
+/* For index.html */
+/* 
+This is for the text that says "Filter by" in the filters
+inline-block lets the text sit next to the select element (which cannot be done with block), but also allows it to have properties like vertical-align (which cannot be done with inline)
+The rem unit is a relative unit: the multiple of the size of the font of the root element (in this case, the html element - which is 16px). 
+rem is useful for making the font size responsive - all fonts will change when the font size of the html element is changed.
+*/
+label {
+  font-size: 1.5rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+/* !important is used to override any unwanted default Bootstrap styles */
+select {
+  font-size: 1.3rem !important;
+  height: 3rem;
+  vertical-align: middle;
+}
+
+/* For the hero section */
+/* 
+There are some complex properties here.
+The position: relative; is needed for the children of the hero section to be positioned absolutely, relative to the position of the hero section.
+The % unit is a relative unit: the percentage of the size of the parent element.
+The vh unit is a relative unit: the percentage of the height of the viewport (the screen).
+The background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)) is used to darken the background image, both values are set to the same colour to make it a solid colour rather than a gradient. no-repeat center center/cover is used to make the image cover the entire hero section without repeating, and centred horizontally and vertically, with the shorter side of the image being the same size as the hero section (height is the second property, and the image is landscape - so the second property is the shorter side).
+The display: flex; is a new way to arrange elements (overriding the old float method).
+align-items: center; (horizontal centering) and justify-content: center; (vertical centering) are used on flex elements to centre their children.
+*/
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; 
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('assets/images/galahs.jpg') no-repeat center center/cover; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+/* 
+The transition property is used to animate changes with a animation (ease) in a property (background) over a duration (0.5s).
+*/
+.btn-get-started {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  transition: background 0.5s ease;
+}
+.btn-get-started:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+/* End of hero section */
+
+/* This allows a unified margin style for all sections on the home page */
+.section-margin {
+  margin-top: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+/* For cards in index.html: */
+/* flex-wrap: wrap; is like a "wrap text" or "word wrap" setting, allowing the cards to wrap to the next line when they reach the end of the container instead of overflowing off the page */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* 
+The calc() function makes sure there's 3 cards in a row, with whitespace between them.
+The overflow is used to hide the overflow of the cards (used to hide the image overflow when the image enlarges on hover).
+*/
+.card {
+  width: calc(33.33% - 40px);
+  margin-right: 40px;
+  margin-bottom: 40px;
+  border: 1px solid black;
+  border-radius: 0 !important;
+  text-align: center;
+  overflow: hidden;
+}
+
+.image-container {
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0 !important;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img {
+  transform: scale(1.1);
+}
+
+.card-text {
+  font-size: 1.2rem;
+  padding: 10px;
+}  
+/* End of cards in index.html */
+
+.filter-container {
+  margin-bottom: 20px;
+}
+
+.back-to-top {
+  margin-bottom: 40px;
+}
+.btn-top {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.btn-top:hover {
+  background-color: #555;
+}
+/* End of back-to-top link */
+/* End of index.html */
+
+/* Dark Theme Overrides */
+.dark-theme body {
+  background-color: #222;
+  color: #f5f5f5 !important;
+}
+
+.dark-theme p, .dark-theme h2 {
+  color: #f5f5f5 !important;
+}
+
+.dark-theme .navbar {
+  background-color: #333 !important;
+}
+
+.dark-theme .image-box {
+  background-color: #333 !important;
+  border-color: #444 !important;
+}
+
+.dark-theme .card {
+  border-color: #444 !important;
+  background-color: #333 !important;
+}
+
+.dark-theme .card-text {
+  color: #f5f5f5 !important;
+}
+
+.dark-theme .btn-top {
+  background-color: #f5f5f5 !important;
+  color: #333 !important;
+}
+
+.dark-theme .btn-top:hover {
+  background-color: #cccccc !important;
+  color: #333 !important;
+}
+
+.dark-theme a,
+.dark-theme a.nav-link {
+  color: #e0e0e0 !important;
+}
+
+.dark-theme .dropdown-menu {
+  background-color: #333 !important;
+}
+
+.dark-theme .dropdown-item {
+  color: #f5f5f5 !important;
+  background-color: #333 !important;
+}
+
+.dark-theme .dropdown-item:hover {
+  background-color: #444 !important;
+}
+
+/* 
+To initially hide the checkmarks (next to "Light" and "Dark") in the nav bar theme selector 
+These checkmarks are then dynamically shown with JS depending on the theme selected.
+*/
+.theme-check {
+  visibility: hidden;
+}
+
+.dark-theme select {
+  background-color: #333 !important;
+  color: #f5f5f5 !important;
+  border: 1px solid #777 !important;
+}
+.dark-theme select option {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Smooth transition for manual (user-initiated) theme change */
+html, body, .navbar, .card, .main, .section, .families, .birds, .hero, select, .image-box {
+  transition: background-color 1s ease;
+}
+
+/* 
+Eliminates transitions when theme is changed automatically 
+no-theme-transition class is added to the body element in the JS file, which is inherited by all elements in the body.
+*/
+.no-theme-transition * {
+  transition: none !important;
+}
+/* End of dark theme overrides */
+
+/* For moreInfoBirds.html and moreInfoFamilies.html */
+/*
+box-sizing: border-box; is used to include the padding and border in the element's total width and height.
+overflow-y: auto; is used to allow the content to scroll if it exceeds the height of the container.
+align-self: flex-start; is used to align the left column to the top of the flex container.
+*/
+.left-column {
+  width: 50%;
+  padding: 40px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  align-self: flex-start;
+}
+/* 
+.left-column a selects all <a> tags that are descendants of any elements with the left-column class.
+*/
+.left-column a {
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.left-column a:hover {
+  text-decoration: underline;
+}
+.left-column h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.left-column p {
+  line-height: 1.5;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+.left-column p b {
+  font-weight: 600;
+}
+.left-column ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+.left-column ul li {
+  margin-bottom: 5px;
+}
+
+.right-column {
+  width: 50%;
+  box-sizing: border-box;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image container */
+/*
+flex-direction: column; is used to arrange the children of the image-box element in columns (the default is rows).
+justify-content: space-between; makes sure the first element is at the top and the last element is at the bottom (the elements in the middle would then be distributed evenly, like the justify setting on MS Word).
+*/
+.image-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  text-align: center;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.image-box img {
+  max-width: 100%;
+  height: auto;
+  border: none;
+  display: block;
+  margin: 0 auto;
+}
+.image-caption {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #555;
+}
+/* End of image container */
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #000 !important;
+  border: 1px solid #000;
+  background-color: #fff !important; 
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+.back-button:hover {
+  color: #666 !important;
+  border: 1px solid #666 !important;
+  text-decoration: none !important;
+}
+
+/* For image lightbox */
+.zoomable {
+  cursor: zoom-in;
+}
+/*
+z-index: 9999; is used to make sure the lightbox is on top of all other elements. (So unless an element has a higher z-index, it will be hidden by the lightbox). This is practically like a "move to front" setting on MS Word - extremely rarely would an element be z-index 10000+.
+position: fixed; is used to position the lightbox absolutely within the viewport.
+*/
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+/*
+position: absolute; is used to position the close button absolutely within nearest positioned ancestor - an ancestor with position set to absolute, relative, fixed, or sticky. In this case, the nearest positioned ancestor is the overlay element.
+user-select: none; is used to prevent the user from highlighting the text. (it would be weird if the close button was highlighted because it's an "x" character).
+*/
+.close-button {
+  position: absolute;
+  top: 0.2rem;    
+  left: 1.5rem;
+  font-size: 3rem;
+  margin: 0;
+  padding: 0.2rem;    
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+.close-button:hover {
+  color: #ccc;
+}
+/*
+position: relative; is used to position the image where it usually would be in the document flow. (Document flow is like in MS word, how everything just sits below what was previously entered).
+*/
+.overlay-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*
+object-fit: contain; is used to make sure the image fits within the container without changing the aspect ratio (ratio between width and height).
+*/
+.overlay-content img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; 
+}
+/* End of image lightbox */
+/* End of moreInfoBirds.html and moreInfoFamilies.html */

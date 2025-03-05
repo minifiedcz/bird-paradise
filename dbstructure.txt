@@ -1,0 +1,25 @@
+Both birds (1-12) and families (1-6) are in ID order.
+
+DUCKS
+black_swan
+mallard
+
+PARROTS
+galahs
+pink_cochatoo
+
+PIGEONS
+crested_pigeon
+rock_dove
+
+WATER BIRDS
+australian_white ibis
+masked_lapwing
+
+HONEY EATERS
+noisy_minor
+yellow_throated_minor
+
+ROBINS
+flame_robin
+eastern_yellow_robin
